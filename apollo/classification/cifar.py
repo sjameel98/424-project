@@ -21,7 +21,7 @@ from torchvision import datasets, transforms
 from torch.utils.data.dataloader import DataLoader
 import torchvision.models as models
 
-from optim import Apollo, RAdamW, AdaHessian, AdaBelief
+from optim import Apollo, RAdamW, AdaHessian, AdaBelief, Lookahead
 from utils import AverageMeter, accuracy
 
 
@@ -48,10 +48,13 @@ def parse_args():
     parser.add_argument('--weight_decay', type=float, default=5e-4, help='weight for l2 norm decay')
     parser.add_argument('--weight_decay_type', choices=['L2', 'decoupled', 'stable'], default=None, help='type of weight decay')
     parser.add_argument('--rebound', choices=['constant', 'belief'], default='constant', help='type of recified bound of diagonal hessian')
-    parser.add_argument('--dataset', choices=['cifar10', 'cifar100'], required=True)
+    parser.add_argument('--dataset', choices=['cifar10', 'cifar100', 'omniglot', 'emnist'], required=True)
     parser.add_argument('--workers', default=2, type=int, metavar='N', help='number of data loading workers (default: 2)')
     parser.add_argument('--data_path', help='path for data file.', required=True)
     parser.add_argument('--model_path', help='path for saving model file.', required=True)
+    parser.add_argument('--lookahead', help='use lookahead on optimizer', required=True)
+    parser.add_argument('--la_steps', help='lookahead steps', default=20)
+    parser.add_argument('--la_alpha', help='lookahead alpha', default=0.5)
 
     return parser.parse_args()
 
@@ -65,7 +68,7 @@ def logging(info, logfile=None):
 
 def get_optimizer(opt, learning_rate, parameters, hyper1, hyper2, eps, rebound,
                   lr_decay, decay_rate, milestone, weight_decay, weight_decay_type,
-                  warmup_updates, init_lr, last_lr, num_epochs):
+                  warmup_updates, init_lr, last_lr, num_epochs, lookahead, la_steps, la_alpha):
     if opt == 'sgd':
         optimizer = SGD(parameters, lr=learning_rate, momentum=hyper1, weight_decay=weight_decay, nesterov=True)
         opt = 'momentum=%.1f, ' % (hyper1)
@@ -95,6 +98,9 @@ def get_optimizer(opt, learning_rate, parameters, hyper1, hyper2, eps, rebound,
     else:
         raise ValueError('unknown optimizer: {}'.format(opt))
 
+    if lookahead:
+        optimizer = Lookahead(optimizer, la_steps=la_steps, la_alpha=la_alpha)
+
     if lr_decay == 'exp':
         opt = opt + 'lr decay={}, decay rate={:.3f}, '.format(lr_decay, decay_rate)
         scheduler = ExponentialLR(optimizer, decay_rate)
@@ -112,7 +118,7 @@ def get_optimizer(opt, learning_rate, parameters, hyper1, hyper2, eps, rebound,
 
 
 def setup(args):
-    dataset = args.dataset
+    datasetName = args.dataset
     data_path = args.data_path
 
     model_path = args.model_path
@@ -135,9 +141,15 @@ def setup(args):
     torch.backends.cudnn.benchmark = True
     logging("Args: " + str(args), args.log)
 
-    if dataset == 'cifar10':
+    if datasetName == 'cifar10':
         dataset = datasets.CIFAR10
         num_classes = 10
+    elif datasetName == 'omniglot':
+        dataset = datasets.Omniglot
+        num_classes = 1623
+    elif datasetName == 'emnist':
+        dataset = datasets.EMNIST
+        num_classes = 62
     else:
         dataset = datasets.CIFAR100
         num_classes = 100
@@ -279,13 +291,16 @@ def main(args):
     weight_decay = args.weight_decay
     weight_decay_type = args.weight_decay_type
     last_lr = args.last_lr
-
+    la_alpha = float(args.la_alpha)
+    la_steps = int(args.la_steps)
+    lookahead = int(args.lookahead)
     numbers = {'train loss': [], 'train acc': [], 'test loss': [], 'test acc': []}
 
     optimizer, scheduler, opt_param = get_optimizer(opt, args.lr, model.parameters(), hyper1, hyper2, eps, rebound,
                                                     lr_decay=lr_decay, decay_rate=decay_rate, milestone=milestone,
                                                     weight_decay=weight_decay, weight_decay_type=weight_decay_type,
-                                                    warmup_updates=lr_warmup, init_lr=init_lr, last_lr=last_lr, num_epochs=epochs)
+                                                    warmup_updates=lr_warmup, init_lr=init_lr, last_lr=last_lr, num_epochs=epochs,
+                                                    lookahead = lookahead, la_steps=la_steps, la_alpha=la_alpha)
 
     best_epoch = 0
     best_top1 = 0
