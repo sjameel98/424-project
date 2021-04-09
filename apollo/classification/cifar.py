@@ -52,7 +52,7 @@ def parse_args():
     parser.add_argument('--workers', default=2, type=int, metavar='N', help='number of data loading workers (default: 2)')
     parser.add_argument('--data_path', help='path for data file.', required=True)
     parser.add_argument('--model_path', help='path for saving model file.', required=True)
-    parser.add_argument('--lookahead', help='use lookahead on optimizer', required=True)
+    parser.add_argument('--lookahead', help='use lookahead on optimizer', action='store_true')
     parser.add_argument('--la_steps', help='lookahead steps', default=20)
     parser.add_argument('--la_alpha', help='lookahead alpha', default=0.5)
 
@@ -293,7 +293,7 @@ def main(args):
     last_lr = args.last_lr
     la_alpha = float(args.la_alpha)
     la_steps = int(args.la_steps)
-    lookahead = int(args.lookahead)
+    lookahead = args.lookahead
     numbers = {'train loss': [], 'train acc': [], 'test loss': [], 'test acc': []}
 
     optimizer, scheduler, opt_param = get_optimizer(opt, args.lr, model.parameters(), hyper1, hyper2, eps, rebound,
@@ -329,7 +329,7 @@ def main(args):
         numbers['test loss'].append(loss)
         numbers['train acc'].append(train_top1)
         numbers['test acc'].append(top1)
-        json.dump(numbers, open(os.path.join(args.model_path, 'values.run{}.json'.format(args.run)), 'w'))
+        json.dump(numbers, open(os.path.join(args.model_path, 'values_run-{}.json'.format(args.run)), 'w'))
 
 
 class ResNet(nn.Module):
