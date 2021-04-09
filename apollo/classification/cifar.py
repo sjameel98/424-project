@@ -145,32 +145,74 @@ def setup(args):
     if datasetName == 'cifar10':
         dataset = datasets.CIFAR10
         num_classes = 10
-    elif datasetName == 'omniglot':
-        dataset = datasets.Omniglot
-        num_classes = 1623
-    elif datasetName == 'emnist':
-        dataset = datasets.EMNIST
-        num_classes = 62
-    else:
-        dataset = datasets.CIFAR100
-        num_classes = 100
-
-    trainset = dataset(data_path, train=True, download=True,
+        color = True
+        trainset = dataset(data_path, train=True, download=True,
                        transform=transforms.Compose([
                            transforms.RandomCrop(32, padding=4),
                            transforms.RandomHorizontalFlip(),
                            transforms.ToTensor(),
                            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
                        ]))
-    valset = dataset(data_path, train=False, download=False,
-                     transform=transforms.Compose([
-                         transforms.ToTensor(),
-                         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-                      ]))
+        valset = dataset(data_path, train=False, download=False,
+                        transform=transforms.Compose([
+                            transforms.ToTensor(),
+                            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+                        ]))
+
+    elif datasetName == 'omniglot':
+        dataset = datasets.Omniglot
+        num_classes = 1623
+        color = False
+        trainset = dataset(data_path, background=True, download=True,
+                       transform=transforms.Compose([
+                           transforms.RandomCrop(32, padding=4),
+                           transforms.RandomHorizontalFlip(),
+                           transforms.ToTensor(),
+                           transforms.Normalize((0.4914), (0.2023))
+                       ]))
+        valset = dataset(data_path, background=False, download=True,
+                        transform=transforms.Compose([
+                            transforms.ToTensor(),
+                            transforms.Normalize((0.4914), (0.2023)),
+                        ]))
+
+    elif datasetName == 'emnist':
+        dataset = datasets.EMNIST
+        num_classes = 62
+        color = False
+        trainset = dataset(data_path, train=True, download=True, split='byclass',
+                       transform=transforms.Compose([
+                           transforms.RandomCrop(32, padding=4),
+                           transforms.RandomHorizontalFlip(),
+                           transforms.ToTensor(),
+                           transforms.Normalize((0.4914), (0.2023))
+                       ]))
+        valset = dataset(data_path, train=False, download=False, split='byclass',
+                        transform=transforms.Compose([
+                            transforms.ToTensor(),
+                            transforms.Normalize((0.4914), (0.2023)),
+                        ]))
+
+    else:
+        dataset = datasets.CIFAR100
+        num_classes = 100
+        color = True
+        trainset = dataset(data_path, train=True, download=True,
+                       transform=transforms.Compose([
+                           transforms.RandomCrop(32, padding=4),
+                           transforms.RandomHorizontalFlip(),
+                           transforms.ToTensor(),
+                           transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
+                       ]))
+        valset = dataset(data_path, train=False, download=False,
+                        transform=transforms.Compose([
+                            transforms.ToTensor(),
+                            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+                        ]))
 
     logging('Data size: training: {}, val: {}'.format(len(trainset), len(valset)))
 
-    model = ResNet(args.depth, num_classes=num_classes)
+    model = ResNet(args.depth, num_classes=num_classes, color=color)
     model.to(device)
     args.device = device
 
@@ -337,7 +379,7 @@ def main(args):
 
 class ResNet(nn.Module):
 
-    def __init__(self, depth, num_classes=1000, block_name='BasicBlock'):
+    def __init__(self, depth, num_classes=1000, block_name='BasicBlock', color=True):
         super(ResNet, self).__init__()
         # Model type specifies number of layers for CIFAR-10 model
         if block_name.lower() == 'basicblock':
@@ -352,7 +394,12 @@ class ResNet(nn.Module):
             raise ValueError('block_name shoule be Basicblock or Bottleneck')
 
         self.inplanes = 16
-        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, padding=1, bias=False)
+
+        if color == True:
+            self.conv1 = nn.Conv2d(3, 16, kernel_size=3, padding=1, bias=False)
+        elif color == False: 
+            self.conv1 = nn.Conv2d(1, 16, kernel_size=3, padding=1, bias=False)
+            
         self.bn1 = nn.BatchNorm2d(16)
         self.relu = nn.ReLU(inplace=True)
         self.layer1 = self._make_layer(block, 16, n)
