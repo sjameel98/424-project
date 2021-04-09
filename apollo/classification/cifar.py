@@ -180,16 +180,16 @@ def setup(args):
 
     elif datasetName == 'emnist':
         dataset = datasets.EMNIST
-        num_classes = 62
+        num_classes =  47
         color = False
-        trainset = dataset(data_path, train=True, download=True, split='mnist',
+        trainset = dataset(data_path, train=True, download=True, split='balanced',
                        transform=transforms.Compose([
                            transforms.RandomCrop(32, padding=4),
                            transforms.RandomHorizontalFlip(),
                            transforms.ToTensor(),
                            transforms.Normalize((0.4914), (0.2023))
                        ]))
-        valset = dataset(data_path, train=False, download=False, split='mnist',
+        valset = dataset(data_path, train=False, download=False, split='balanced',
                         transform=transforms.Compose([
                             transforms.RandomCrop(32, padding=4),
                             transforms.ToTensor(),
