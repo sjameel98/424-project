@@ -174,6 +174,7 @@ def setup(args):
         valset = dataset(data_path, background=False, download=True,
                         transform=transforms.Compose([
                             transforms.ToTensor(),
+                            transforms.RandomCrop(32, padding=4),
                             transforms.Normalize((0.4914), (0.2023)),
                         ]))
 
