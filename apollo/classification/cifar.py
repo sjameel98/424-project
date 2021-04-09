@@ -163,17 +163,17 @@ def setup(args):
         dataset = datasets.Omniglot
         num_classes = 1623
         color = False
-        trainset = dataset(data_path, download=True,
+        trainset = dataset(data_path, background=True, download=True,
                        transform=transforms.Compose([
                            transforms.RandomCrop(32, padding=4),
                            transforms.RandomHorizontalFlip(),
                            transforms.ToTensor(),
-                           transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
+                           transforms.Normalize((0.4914), (0.2023))
                        ]))
-        valset = dataset(data_path, train=False, download=False,
+        valset = dataset(data_path, background=False, download=True,
                         transform=transforms.Compose([
                             transforms.ToTensor(),
-                            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+                            transforms.Normalize((0.4914), (0.2023)),
                         ]))
 
     elif datasetName == 'emnist':
@@ -185,12 +185,12 @@ def setup(args):
                            transforms.RandomCrop(32, padding=4),
                            transforms.RandomHorizontalFlip(),
                            transforms.ToTensor(),
-                           transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
+                           transforms.Normalize((0.4914), (0.2023))
                        ]))
         valset = dataset(data_path, train=False, download=False, split='byclass',
                         transform=transforms.Compose([
                             transforms.ToTensor(),
-                            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+                            transforms.Normalize((0.4914), (0.2023)),
                         ]))
 
     else:
