@@ -11,6 +11,7 @@ import math
 import json
 import random
 import numpy as np
+import datetime.datetime as datetime
 
 import torch
 import torch.nn as nn
@@ -294,7 +295,7 @@ def main(args):
     la_alpha = float(args.la_alpha)
     la_steps = int(args.la_steps)
     lookahead = args.lookahead
-    numbers = {'train loss': [], 'train acc': [], 'test loss': [], 'test acc': []}
+    numbers = {'train loss': [], 'train acc': [], 'test loss': [], 'test acc': [], 'time': []}
 
     optimizer, scheduler, opt_param = get_optimizer(opt, args.lr, model.parameters(), hyper1, hyper2, eps, rebound,
                                                     lr_decay=lr_decay, decay_rate=decay_rate, milestone=milestone,
@@ -312,6 +313,7 @@ def main(args):
 
         train_loss, train_top1, train_top5 = train(args, train_loader, num_train, model, criterion, optimizer)
         scheduler.step()
+        time = datetime.now().isoformat()
 
         with torch.no_grad():
             loss, top1, top5 = eval(args, val_loader, model, criterion)
@@ -329,6 +331,7 @@ def main(args):
         numbers['test loss'].append(loss)
         numbers['train acc'].append(train_top1)
         numbers['test acc'].append(top1)
+        numbers['time'].append(time)
         json.dump(numbers, open(os.path.join(args.model_path, 'values_run-{}.json'.format(args.run)), 'w'))
 
 
