@@ -11,7 +11,7 @@ import math
 import json
 import random
 import numpy as np
-import datetime.datetime as datetime
+from datetime import datetime
 
 import torch
 import torch.nn as nn
