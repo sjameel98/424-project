@@ -155,6 +155,7 @@ def setup(args):
                        ]))
         valset = dataset(data_path, train=False, download=False,
                         transform=transforms.Compose([
+                            transforms.RandomCrop(32, padding=4),
                             transforms.ToTensor(),
                             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
                         ]))
@@ -172,23 +173,25 @@ def setup(args):
                        ]))
         valset = dataset(data_path, background=False, download=True,
                         transform=transforms.Compose([
+                            transforms.RandomCrop(32, padding=4),
                             transforms.ToTensor(),
                             transforms.Normalize((0.4914), (0.2023)),
                         ]))
 
     elif datasetName == 'emnist':
         dataset = datasets.EMNIST
-        num_classes = 62
+        num_classes =  47
         color = False
-        trainset = dataset(data_path, train=True, download=True, split='byclass',
+        trainset = dataset(data_path, train=True, download=True, split='balanced',
                        transform=transforms.Compose([
                            transforms.RandomCrop(32, padding=4),
                            transforms.RandomHorizontalFlip(),
                            transforms.ToTensor(),
                            transforms.Normalize((0.4914), (0.2023))
                        ]))
-        valset = dataset(data_path, train=False, download=False, split='byclass',
+        valset = dataset(data_path, train=False, download=False, split='balanced',
                         transform=transforms.Compose([
+                            transforms.RandomCrop(32, padding=4),
                             transforms.ToTensor(),
                             transforms.Normalize((0.4914), (0.2023)),
                         ]))
@@ -444,6 +447,7 @@ class ResNet(nn.Module):
 
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
+
         x = self.fc(x)
 
         return x
