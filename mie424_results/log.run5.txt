@@ -1,0 +1,202 @@
+Args: Namespace(batch_size=128, cuda=True, data_path='mie424_data', dataset='emnist', decay_rate=0.1, depth=110, epochs=50, eps=0.0001, eval_batch_size=1000, init_lr=0.01, la_alpha=0.5, la_steps=20, last_lr=0.01, log=<_io.TextIOWrapper name='mie424_model/log.run5.txt' mode='w' encoding='UTF-8'>, log_interval=10, lookahead=True, lr=1.0, lr_decay='milestone', milestone=[80, 120], model_path='mie424_model', opt='adamw', opt_h1=0.9, opt_h2=0.999, rebound='constant', run=5, seed=0, warmup_updates=200, weight_decay=0.00025, weight_decay_type='L2', workers=2)
+# of Parameters: 1732831
+Epoch: 1/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 4.3882, top1: 2.19%, top5: 10.61%, time: 132.8s
+Avg  loss: 3.8965, top1: 2.13%, top5: 10.64%
+Best loss: 3.8965, top1: 2.13%, top5: 10.64%, epoch: 1
+Epoch: 2/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9561, top1: 2.14%, top5: 10.60%, time: 132.4s
+Avg  loss: 3.9168, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 3/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9543, top1: 2.21%, top5: 10.61%, time: 132.7s
+Avg  loss: 3.9845, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 4/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9555, top1: 2.11%, top5: 10.69%, time: 132.4s
+Avg  loss: 3.9727, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 5/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9556, top1: 2.08%, top5: 10.65%, time: 132.5s
+Avg  loss: 3.9691, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 6/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9598, top1: 2.17%, top5: 10.60%, time: 132.7s
+Avg  loss: 3.9848, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 7/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 6.2770, top1: 2.11%, top5: 10.52%, time: 132.6s
+Avg  loss: 3.9679, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 8/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9562, top1: 2.09%, top5: 10.52%, time: 133.2s
+Avg  loss: 3.9716, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 9/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9556, top1: 2.06%, top5: 10.58%, time: 132.9s
+Avg  loss: 3.9327, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 10/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9585, top1: 2.08%, top5: 10.79%, time: 132.6s
+Avg  loss: 3.9105, top1: 2.13%, top5: 10.64%
+Best loss: 3.9168, top1: 2.13%, top5: 10.64%, epoch: 2
+Epoch: 11/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9560, top1: 2.05%, top5: 10.60%, time: 132.8s
+Avg  loss: 3.9499, top1: 2.13%, top5: 10.64%
+Best loss: 3.9499, top1: 2.13%, top5: 10.64%, epoch: 11
+Epoch: 12/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9553, top1: 2.23%, top5: 10.69%, time: 132.6s
+Avg  loss: 3.9492, top1: 2.13%, top5: 10.64%
+Best loss: 3.9499, top1: 2.13%, top5: 10.64%, epoch: 11
+Epoch: 13/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9559, top1: 2.12%, top5: 10.67%, time: 132.6s
+Avg  loss: 4.0116, top1: 2.13%, top5: 10.64%
+Best loss: 4.0116, top1: 2.13%, top5: 10.64%, epoch: 13
+Epoch: 14/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9534, top1: 2.10%, top5: 10.64%, time: 132.8s
+Avg  loss: 3.9451, top1: 2.13%, top5: 10.64%
+Best loss: 4.0116, top1: 2.13%, top5: 10.64%, epoch: 13
+Epoch: 15/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9596, top1: 2.02%, top5: 10.57%, time: 133.9s
+Avg  loss: 3.9946, top1: 2.13%, top5: 10.64%
+Best loss: 4.0116, top1: 2.13%, top5: 10.64%, epoch: 13
+Epoch: 16/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9567, top1: 2.10%, top5: 10.79%, time: 132.7s
+Avg  loss: 3.9263, top1: 2.13%, top5: 10.64%
+Best loss: 4.0116, top1: 2.13%, top5: 10.64%, epoch: 13
+Epoch: 17/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9556, top1: 2.17%, top5: 10.59%, time: 132.9s
+Avg  loss: 3.9478, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 18/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9588, top1: 2.08%, top5: 10.45%, time: 132.8s
+Avg  loss: 3.9250, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 19/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9559, top1: 2.15%, top5: 10.69%, time: 133.0s
+Avg  loss: 3.9602, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 20/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9534, top1: 2.08%, top5: 10.57%, time: 132.9s
+Avg  loss: 3.8960, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 21/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9563, top1: 2.21%, top5: 10.72%, time: 132.8s
+Avg  loss: 3.9158, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 22/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9566, top1: 2.04%, top5: 10.57%, time: 132.9s
+Avg  loss: 3.9079, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 23/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9544, top1: 2.12%, top5: 10.48%, time: 132.7s
+Avg  loss: 4.0311, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 24/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9544, top1: 2.10%, top5: 10.48%, time: 133.1s
+Avg  loss: 3.9692, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 25/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9600, top1: 2.06%, top5: 10.55%, time: 133.2s
+Avg  loss: 4.0229, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 26/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9522, top1: 2.11%, top5: 10.65%, time: 132.7s
+Avg  loss: 3.9571, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 27/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9547, top1: 2.15%, top5: 10.55%, time: 132.8s
+Avg  loss: 3.9362, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 28/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9544, top1: 2.08%, top5: 10.50%, time: 132.8s
+Avg  loss: 3.9242, top1: 2.13%, top5: 10.64%
+Best loss: 3.9478, top1: 2.13%, top5: 10.64%, epoch: 17
+Epoch: 29/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9563, top1: 2.13%, top5: 10.66%, time: 132.8s
+Avg  loss: 3.9582, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 30/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9540, top1: 2.13%, top5: 10.57%, time: 133.2s
+Avg  loss: 3.9893, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 31/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9535, top1: 2.14%, top5: 10.63%, time: 132.8s
+Avg  loss: 3.9585, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 32/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9540, top1: 2.14%, top5: 10.38%, time: 132.8s
+Avg  loss: 3.9698, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 33/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9589, top1: 2.10%, top5: 10.64%, time: 132.9s
+Avg  loss: 4.0066, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 34/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9546, top1: 2.09%, top5: 10.58%, time: 132.8s
+Avg  loss: 3.9821, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 35/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9547, top1: 2.09%, top5: 10.70%, time: 132.6s
+Avg  loss: 3.9400, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 36/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9536, top1: 2.13%, top5: 10.61%, time: 132.9s
+Avg  loss: 3.9512, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 37/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9594, top1: 2.11%, top5: 10.59%, time: 132.8s
+Avg  loss: 3.9292, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 38/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9558, top1: 2.12%, top5: 10.68%, time: 132.8s
+Avg  loss: 3.9859, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 39/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9574, top1: 2.18%, top5: 10.69%, time: 132.8s
+Avg  loss: 3.9367, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 40/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9537, top1: 2.13%, top5: 10.69%, time: 133.9s
+Avg  loss: 3.8963, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 41/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9604, top1: 2.14%, top5: 10.70%, time: 135.1s
+Avg  loss: 3.8829, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 42/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9550, top1: 2.09%, top5: 10.72%, time: 132.7s
+Avg  loss: 3.9286, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 43/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9537, top1: 2.15%, top5: 10.70%, time: 133.3s
+Avg  loss: 3.9559, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 44/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9575, top1: 2.07%, top5: 10.63%, time: 132.7s
+Avg  loss: 3.9329, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 45/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9589, top1: 2.10%, top5: 10.63%, time: 134.0s
+Avg  loss: 3.9493, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 46/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9552, top1: 1.99%, top5: 10.65%, time: 132.8s
+Avg  loss: 3.9516, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 47/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9551, top1: 2.14%, top5: 10.76%, time: 133.9s
+Avg  loss: 3.9562, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 48/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9602, top1: 2.13%, top5: 10.50%, time: 132.7s
+Avg  loss: 3.9175, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 49/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9586, top1: 2.08%, top5: 10.51%, time: 132.7s
+Avg  loss: 3.9687, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
+Epoch: 50/50 (adamw, lr=1.000000, betas=(0.9, 0.999), eps=1.0e-04, lr decay=milestone [80, 120], decay rate=0.100, warmup=200, init_lr=1.0e-02, wd=2.5e-04 (decoupled))
+Average loss: 3.9546, top1: 2.11%, top5: 10.65%, time: 132.7s
+Avg  loss: 3.9607, top1: 2.13%, top5: 10.64%
+Best loss: 3.9582, top1: 2.13%, top5: 10.64%, epoch: 29
