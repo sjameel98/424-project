@@ -3,8 +3,8 @@
 This is the code for our MIE424 project, **Comparison of Various Optimization Methods for Deep Learning Image Classification** by Mustafa Arif, Anup Deb, Saad Jameel, Michael Mudrinic, and Yuan Hong Sun.
 
 The implementation is based on the following papers and their code:
-1. [Lookahead Optimizer: k steps forward, 1 step back](https://arxiv.org/abs/1907.08610) [code](https://github.com/michaelrzhang/lookahead)
-2. [Apollo: An Adaptive Parameter-wise Diagonal Quasi-Newton Method for Nonconvex Stochastic Optimization](https://arxiv.org/abs/2009.13586) [code](https://github.com/XuezheMax/apollo)
+1. [Lookahead Optimizer: k steps forward, 1 step back](https://arxiv.org/abs/1907.08610) [(code)](https://github.com/michaelrzhang/lookahead)
+2. [Apollo: An Adaptive Parameter-wise Diagonal Quasi-Newton Method for Nonconvex Stochastic Optimization](https://arxiv.org/abs/2009.13586) [(code)](https://github.com/XuezheMax/apollo)
 
 Some things to note are:
 1. The code for making plots is in ``Make_Plots.ipynb``
