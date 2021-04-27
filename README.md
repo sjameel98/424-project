@@ -6,6 +6,8 @@ The implementation is based on the following papers and their code:
 1. [Lookahead Optimizer: k steps forward, 1 step back](https://arxiv.org/abs/1907.08610) [(code)](https://github.com/michaelrzhang/lookahead)
 2. [Apollo: An Adaptive Parameter-wise Diagonal Quasi-Newton Method for Nonconvex Stochastic Optimization](https://arxiv.org/abs/2009.13586) [(code)](https://github.com/XuezheMax/apollo)
 
+In addition, our GoogLeNet implementation is based on source code from https://github.com/kuangliu/pytorch-cifar/blob/master/models/googlenet.py, with modifications to support the datasets involved in our experiments.
+
 Some things to note are:
 1. The code for making plots is in ``Make_Plots.ipynb``
 2. The code defining GoogLeNet is in ``apollo/classification/GoogLeNet.py`` and running/training it is in ``apollo/classification/run_GoogLeNet.py``. The code for ResNet and running/training ResNet is in ``apollo/classification/run_ResNet.py``
